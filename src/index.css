@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sf: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sf);
+  -webkit-font-smoothing: antialiased;
+}
+
+.message-bubble {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.message-bubble:hover {
+  transform: scale(1.02);
+}
+
+.message-bubble::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.message-sent::before {
+  right: -8px;
+  bottom: 8px;
+  border-width: 8px 0 8px 8px;
+  border-color: transparent transparent transparent #2563eb;
+}
+
+.message-received::before {
+  left: -8px;
+  bottom: 8px;
+  border-width: 8px 8px 8px 0;
+  border-color: transparent #374151 transparent transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+.auth-input {
+  @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200;
+}
+
+.auth-button {
+  @apply w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+* {
+  box-sizing: border-box;
+}
